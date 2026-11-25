@@ -1,0 +1,547 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+}
+
+.barra-lateral {
+  width: 250px;
+  min-height: 100vh;
+  background-color: #1e293b;
+  color: white;
+  padding: 25px;
+}
+
+.barra-lateral h2 {
+  margin-bottom: 35px;
+}
+
+.barra-lateral ul {
+  list-style: none;
+}
+
+.barra-lateral li {
+  padding: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.contenido-principal {
+  flex: 1;
+  padding: 35px;
+}
+
+.contenido-principal header {
+  margin-bottom: 30px;
+}
+
+.contenido-principal h1 {
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.estadisticas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.tarjeta {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta h3 {
+  color: #64748b;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.tarjeta p {
+  color: #1e293b;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.lista-tareas {
+  margin-top: 35px;
+}
+
+.lista-tareas h2 {
+  margin-bottom: 20px;
+  color: #1e293b;
+}
+
+.tarea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.tarea h3 {
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+.tarea p {
+  color: #64748b;
+}
+
+.tarea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarea:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.tarea button {
+  padding: 9px 14px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.tarea button:first-of-type {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.tarea button:first-of-type:hover {
+  background-color: #fecaca;
+}
+
+.tarea button:last-of-type {
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+
+.tarea button:last-of-type:hover {
+  background-color: #bfdbfe;
+}
+
+.formulario-tarea {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.formulario-tarea input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.formulario-tarea button {
+  padding: 12px 20px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.estado {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.estado.pendiente {
+  background-color: #e2e8f0;
+  color: #475569;
+}
+
+.estado.progreso {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.estado.completada {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+.buscador-tareas {
+  width: 100%;
+  padding: 13px 16px;
+  margin-bottom: 18px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  font-size: 15px;
+  outline: none;
+  background-color: white;
+  color: #1e293b;
+
+  transition: border-color 0.2s;
+}
+
+.buscador-tareas:focus {
+  border-color: #2563eb;
+}
+
+.filtros {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.filtros button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+
+  background-color: white;
+  color: #475569;
+
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.filtros button:hover {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+
+/* TABLETS */
+@media (max-width: 900px) {
+  .estadisticas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contenido-principal {
+    padding: 25px;
+  }
+}
+
+/* CELULARES */
+@media (max-width: 600px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .barra-lateral {
+    width: 100%;
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .barra-lateral h2 {
+    margin-bottom: 15px;
+  }
+
+  .barra-lateral ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .barra-lateral li {
+    margin-bottom: 0;
+  }
+
+  .contenido-principal {
+    padding: 20px;
+  }
+
+  .estadisticas {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario-tarea {
+    flex-direction: column;
+  }
+
+  .tarea {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tarea button {
+    width: 100%;
+  }
+}
+
+.formulario-edicion {
+  background-color: white;
+  padding: 25px;
+  margin-top: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.formulario-edicion h2 {
+  margin-bottom: 20px;
+  color: #1e293b;
+}
+
+.formulario-edicion input,
+.formulario-edicion textarea {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
+
+.formulario-edicion textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.acciones-edicion {
+  display: flex;
+  gap: 10px;
+}
+
+.acciones-edicion button {
+  padding: 11px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.acciones-edicion button:first-child {
+  background-color: #2563eb;
+  color: white;
+}
+
+.acciones-edicion button:last-child {
+  background-color: #e2e8f0;
+  color: #475569;
+}
+
+.prioridad {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.prioridad.baja {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.prioridad.media {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.prioridad.alta {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+
+
+
+
+.fecha {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-top: 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.fecha.vencida {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.fecha.vence-hoy {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.fecha.a-tiempo {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.fecha.sin-fecha {
+  background-color: #e2e8f0;
+  color: #475569;
+}
+
+
+.notificaciones {
+  background-color: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-left: 5px solid #f97316;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.notificaciones h2 {
+  color: #c2410c;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.notificacion {
+  background-color: white;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.notificacion:last-child {
+  margin-bottom: 0;
+}
+
+.notificacion strong {
+  color: #1e293b;
+}
+
+.notificacion p {
+  color: #64748b;
+  margin-top: 5px;
+}
+
+
+.notificacion button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.notificacion button:hover {
+  background-color: #1d4ed8;
+}
+
+
+.centro-notificaciones {
+  margin: 30px 0;
+}
+
+.centro-notificaciones h2 {
+  margin-bottom: 18px;
+  color: #1e293b;
+}
+
+.resumen-notificaciones {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.resumen {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.resumen strong {
+  font-size: 28px;
+}
+
+.resumen span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.resumen.vencidas {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.resumen.hoy {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.resumen.proximas {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.lista-notificaciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lista-notificaciones > button {
+  align-self: flex-start;
+  padding: 9px 14px;
+  border: none;
+  border-radius: 7px;
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.lista-notificaciones .notificacion {
+  background-color: white;
+  padding: 16px;
+  border-radius: 9px;
+  border: 1px solid #e2e8f0;
+}
+
+@media (max-width: 650px) {
+  .resumen-notificaciones {
+    grid-template-columns: 1fr;
+  }
+}
+.mensaje-error {
+  color: #dc2626;
+  background-color: #fee2e2;
+  padding: 10px;
+  border-radius: 6px;
+}
