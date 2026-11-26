@@ -63,7 +63,7 @@ function App() {
   }, [])
 
   // Agregar una tarea
-const agregarTarea = async () => {
+  const agregarTarea = async () => {
   if (!titulo.trim()) {
     setError('El título es obligatorio')
     return

@@ -37,15 +37,14 @@ TaskFlow es una aplicación web de gestión de tareas desarrollada como proyecto
 
 ## Estructura del proyecto
 
-```text
-gestor-tareas-fullstack/
+```gestor-tareas-fullstack/
 │
 ├── backend/
 │   ├── src/
 │   │   ├── database/
 │   │   └── tareas/
 │   ├── package.json
-│   └── .env
+│   └── .env.example
 │
 ├── frontend/
 │   ├── src/
@@ -54,6 +53,7 @@ gestor-tareas-fullstack/
 │   │   └── App.jsx
 │   └── package.json
 │
+├── database.sql
 ├── .gitignore
 └── README.md
 ```
@@ -80,15 +80,25 @@ Entrar en la carpeta:
 cd gestor-tareas-fullstack
 ```
 
+
 ### 2. Configurar la base de datos
 
-Crear una base de datos MySQL llamada:
+TaskFlow utiliza MySQL 8.
 
-```sql
-CREATE DATABASE taskflow_db;
-```
+El proyecto incluye el archivo `database.sql`, que contiene:
 
-La estructura de las tablas debe estar creada antes de ejecutar la aplicación.
+- La creación de la base de datos `taskflow_db`.
+- La creación de las tablas `usuarios` y `tareas`.
+- La relación entre usuarios y tareas.
+- Un usuario inicial para realizar pruebas.
+
+Para configurar la base de datos:
+
+1. Abre MySQL Workbench.
+2. Abre el archivo `database.sql`.
+3. Ejecuta todo el script.
+
+El script creará la estructura necesaria para ejecutar TaskFlow.
 
 ### 3. Configurar el backend
 
@@ -104,7 +114,9 @@ Instalar dependencias:
 npm install
 ```
 
-Crear un archivo `.env` dentro de `backend/` con estas variables:
+Copia el archivo `.env.example` y crea un archivo `.env` dentro de `backend/`.
+
+Configura las credenciales correspondientes a tu instalación de MySQL.
 
 ```env
 DB_HOST=localhost
